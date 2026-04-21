@@ -14,7 +14,7 @@ service vendor.health-default /vendor/bin/hw/android.hardware.health-service.qti
 #    file /dev/kmsg w
 
 service vendor.charger /system/bin/charger
-    class chargerr
+    class charger
     user system
     group system graphics input
     capabilities SYS_BOOT
@@ -25,4 +25,4 @@ on charger
     wait /sys/class/power_supply/battery 10
     wait /sys/class/power_supply/wait 2
     write /dev/kmsg "qtirc start charger finish"
-    class_start chargerr
+    class_start charger
