@@ -12,10 +12,3 @@ service vendor.charger /vendor/bin/hw/android.hardware.health-service.qti --char
     group system wakelock input graphics
     capabilities SYS_BOOT WAKE_ALARM BLOCK_SUSPEND
     file /dev/kmsg w
-
-on charger
-    write /dev/kmsg "qtirc start charger wait"
-    wait /sys/class/power_supply/battery 10
-    wait /sys/class/power_supply/wait 2
-    write /dev/kmsg "qtirc start charger finish"
-    class_start charger
